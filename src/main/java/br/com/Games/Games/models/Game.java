@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-public class Games {
+public class Game {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
