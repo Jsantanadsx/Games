@@ -1,6 +1,7 @@
 package br.com.Games.Games.controllers;
 
 import br.com.Games.Games.models.Game;
+import br.com.Games.Games.services.GameService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +17,6 @@ import java.util.List;
 @Slf4j
 public class GameController {
 
-    private static final Logger log = LoggerFactory.getLogger(GameController.class);
     @Autowired
     private GameService service;
 
@@ -48,7 +48,6 @@ public class GameController {
     @PutMapping("{id}")
     public ResponseEntity<Game> updateGame(@PathVariable Long id, @RequestBody Game game){
         log.info("Atualizando jogo com id {} com os dados {}", id, game);
-        return ResponseEntity.ok( service.updateGame(id, game));
+        return ResponseEntity.ok(service.updateGame(id, game));
     }
 }
-//pq ta tudo errado???
