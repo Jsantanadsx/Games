@@ -1,3 +1,10 @@
+## 👨‍💻 Integrantes
+
+Projeto realizado por:
+
+- João Victor Santana — RM: 566063  
+- Felipe Ribeiro Salles de Camargo — RM: 565224  
+
 # 🎮 Games API
 
 API REST desenvolvida com Spring Boot para gerenciamento de jogos.
