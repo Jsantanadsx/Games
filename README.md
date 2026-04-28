@@ -1,13 +1,6 @@
-## 👨‍💻 Integrantes
-
-Projeto realizado por:
-
-- João Victor Santana — RM: 566063  
-- Felipe Ribeiro Salles de Camargo — RM: 565224  
-
 # 🎮 Games API
 
-API REST desenvolvida com Spring Boot para gerenciamento de jogos.
+API REST desenvolvida com Spring Boot para gerenciamento de jogos, usuários e avaliações.
 
 ## 🚀 Tecnologias
 - Java 21
@@ -17,34 +10,27 @@ API REST desenvolvida com Spring Boot para gerenciamento de jogos.
 - Lombok
 
 ## 📌 Funcionalidades
-- Criar jogo
-- Listar jogos
-- Buscar por ID
-- Atualizar jogo
-- Deletar jogo
+- CRUD de Games
+- CRUD de Users
+- CRUD de Reviews
+- Filtros por gênero, nota e título
+- Paginação e ordenação
 
-## 🔗 Endpoints
+## 🔗 Endpoints principais
 
+### Games
 GET /games  
-POST /games  
 GET /games/{id}  
+POST /games  
 PUT /games/{id}  
-DELETE /games/{id}
+DELETE /games/{id}  
 
-## 🧪 Exemplo JSON
+GET /games?genre=RPG  
+GET /games/page?page=0&size=2  
 
-{
-  "title": "Dark Souls 3",
-  "genre": "RPG",
-  "rating": 10,
-  "releaseDate": "2016-03-24"
-}
-
-## ▶️ Como rodar
-
-1. Clonar o repositório  
-2. Rodar a aplicação  
-3. Acessar: http://localhost:8080/games  
-
-## 🗄️ H2 Console
+### H2 Console
 http://localhost:8080/h2-console
+
+## 👨‍💻 Integrantes
+João Victor Santana – RM 566063  
+Felipe Ribeiro Salles de Camargo – RM 565224
