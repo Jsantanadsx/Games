@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +23,31 @@ public class GameController {
     private GameService service;
 
     @GetMapping
-    public List<Game> listAll() {
+    public List<Game> listAll(
+            @RequestParam(required = false) String genre,
+            @RequestParam(required = false) Integer rating,
+            @RequestParam(required = false) String title
+
+    ) {
+
+        if (genre !=null) return service.findByGenre(genre);
+        if (rating !=null) return service.findByRating(rating);
+        if (title !=null) return service.findByTitle(title);
+
         return service.getAllGames();
 
     // Para teste: Método GET("Listar todos")
         // http://localhost:8080/games
 
+    }
+
+    @GetMapping("/page")
+    public Page<Game> listPage(Pageable pageable) {
+        return service.getAllPaged(pageable);
+
+        // Para teste:
+        // http://localhost:8080/games/page?page=0&size=2
+        // http://localhost:8080/games/page?sort=rating,desc
     }
 
     @PostMapping

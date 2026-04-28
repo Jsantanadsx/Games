@@ -3,6 +3,8 @@ package br.com.Games.Games.services;
 import br.com.Games.Games.models.Game;
 import br.com.Games.Games.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,5 +46,21 @@ public class GameService {
         existing.setReleaseDate(newGame.getReleaseDate());
 
         return repository.save(existing);
+    }
+
+    public List<Game> findByGenre(String genre) {
+        return repository.findByGenre(genre);
+    }
+
+    public List<Game> findByRating(int rating) {
+        return repository.findByRating(rating);
+    }
+
+    public List<Game> findByTitle(String title) {
+        return repository.findByTitleContainingIgnoreCase(title);
+    }
+
+    public Page<Game> getAllPaged(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 }
